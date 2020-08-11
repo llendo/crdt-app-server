@@ -8,7 +8,7 @@ const db = require("./models");
 // cors origin URL - Allow inbound traffic from origin
 corsOptions = {
 //origin: "http://localhost:8081"
-  origin: "https://thesis-recipebook.netlify.app/",
+  origin: "https://thesis-recipebook.netlify.app",
   optionsSuccessStatus: 200 
 };
   
