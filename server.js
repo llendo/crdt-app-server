@@ -5,9 +5,11 @@ const cors = require("cors");
 const app = express();
 const db = require("./models");
 
-
-var corsOptions = {
-    origin: "http://localhost:8081"
+// cors origin URL - Allow inbound traffic from origin
+corsOptions = {
+//origin: "http://localhost:8081"
+  origin: "https://thesis-recipebook.netlify.app/",
+  optionsSuccessStatus: 200 
 };
   
 app.use(cors(corsOptions));
