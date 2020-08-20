@@ -5,28 +5,21 @@ const cors = require("cors");
 const app = express();
 const db = require("./models");
 
-// cors origin URL - Allow inbound traffic from origin
+// cors origin URL
 corsOptions = {
 //origin: "http://localhost:8081"
-  origin: "https://thesis-recipebook.netlify.app",
+  origin: ["https://thesis-recipebook.netlify.app", "http://localhost:8081", "http://localhost:5500"],
   optionsSuccessStatus: 200 
 };
   
 app.use(cors(corsOptions));
-
-// parse requests of content-type - application/json
 app.use(bodyParser.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple route
-app.get("/", (req, res) => {
-res.json({ message: "Hello world." });
-});
 
 require("./routes/operations.routes")(app);
-// set port, listen for requests
+
+// set port and listen
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

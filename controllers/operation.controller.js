@@ -1,10 +1,8 @@
 const db = require("../models");
-const { request } = require("express");
 const Operation = db.operations;
 
 exports.processOperations = (req, res) => {
     const operations = req.body
-    console.log("OPERATIONS 1",operations)
     const result = operations.map(async op => {
         const query = {
             "_id": {$ne: op._id},
@@ -27,10 +25,7 @@ exports.processOperations = (req, res) => {
             }
         })
     });
-    console.log("OPERATIONS 2",operations.length)
-    return Promise.all(result).then((response) => {
-        console.log(response)
-        console.log("HUUUUUUUU", operations);
+    return Promise.all(result).then(() => {
         return Operation.insertMany(operations, {ordered: false});
     }).catch(e => {console.log(e)})
     .then( () => {

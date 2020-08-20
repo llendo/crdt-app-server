@@ -1,4 +1,3 @@
-
 module.exports = mongoose => {
     const Operation = mongoose.model(
         "operation",
@@ -16,4 +15,3 @@ module.exports = mongoose => {
     );
     return Operation;    
 }
-
