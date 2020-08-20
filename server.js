@@ -8,7 +8,7 @@ const db = require("./models");
 // cors origin URL
 corsOptions = {
 //origin: "http://localhost:8081"
-  origin: ["https://thesis-recipebook.netlify.app", "http://localhost:8081", "http://localhost:5500"],
+  origin: ["https://thesis-recipebook.netlify.app", "http://localhost:8081", "http://127.0.0.1:5500"],
   optionsSuccessStatus: 200 
 };
   
