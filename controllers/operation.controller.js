@@ -16,13 +16,13 @@ exports.processOperations = (req, res) => {
         console.log(err);
       }
       if (doc) {
-        console.log("Deleted operation ", doc, "from database");
+        console.log("Deleted operation ", doc, " from database");
         const index = operations.findIndex((o) => o._id === doc._id);
         if (operations[index] != undefined) {
           console.log(
             "Deleting ",
             operations[index],
-            "from incoming operations"
+            " from incoming operations"
           );
           operations.splice(index, 1);
         }

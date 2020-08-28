@@ -5,9 +5,7 @@ const cors = require("cors");
 const app = express();
 const db = require("./models");
 
-// cors origin URL
 corsOptions = {
-  //origin: "http://localhost:8081"
   origin: [
     "https://thesis-recipebook.netlify.app",
     "http://localhost:8081",
@@ -23,7 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 require("./routes/operations.routes")(app);
 
-// set port and listen
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
